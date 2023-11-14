@@ -51,7 +51,17 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
 
   use { "catppuccin/nvim", as = "catppuccin" }
+
+  -- rust
   use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rs", "toml" } } -- Rust
+  use {
+	'saecki/crates.nvim',
+	event = { "BufRead Cargo.toml" },
+	dependencies = { 'nvim-lua/plenary.nvim' },
+	config = function()
+	  require('crates').setup()
+	end
+  }
   use {
 	'nvim-telescope/telescope.nvim',
 	requires = { {'nvim-lua/plenary.nvim'} }
