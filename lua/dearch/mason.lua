@@ -1,5 +1,5 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
+local mason_status_ok, mason = pcall(require, "mason.nvim")
+if not mason_status_ok then
   return
 end
 

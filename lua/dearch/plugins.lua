@@ -44,9 +44,12 @@ return packer.startup(function(use)
 
   use 'hrsh7th/nvim-cmp' 
   -- LSP completion source:
-  use 'hrsh7th/cmp-vsnip'                             
-  use 'hrsh7th/cmp-path'                              
-  use 'hrsh7th/cmp-buffer'                            
+  use "hrsh7th/cmp-vsnip"                             
+  use "hrsh7th/cmp-path"                              
+  use "hrsh7th/cmp-buffer"                              
+  use "hrsh7th/cmp-nvim-lua"                              
+  use "hrsh7th/cmp-nvim-lsp"
+
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rs", "toml" } } -- Rust
   use {
