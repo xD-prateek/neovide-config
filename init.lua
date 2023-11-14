@@ -1,0 +1,6 @@
+require "dub.options"
+require "dub.keymaps"
+require "dub.plugins"
+require "dub.colorscheme"
+require "dub.mason"
+require "dub.rust"
