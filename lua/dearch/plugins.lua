@@ -39,21 +39,26 @@ packer.init {
 -- Plugins here
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "williamboman/mason.nvim"
-  use "neovim/nvim-lspconfig"
 
-  use 'hrsh7th/nvim-cmp' 
-  -- LSP completion source:
-  use "hrsh7th/cmp-vsnip"                             
+  -- completion source:
   use "hrsh7th/cmp-path"                              
   use "hrsh7th/cmp-buffer"                              
   use "hrsh7th/cmp-nvim-lua"                              
   use "hrsh7th/cmp-nvim-lsp"
+  
+  -- snippet 
+  use 'hrsh7th/nvim-cmp' 
+  use "L3MON4D3/LuaSnip"
 
+  -- LSP completion
+  use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
+  use "neovim/nvim-lspconfig"
+
+  -- themes
   use { "catppuccin/nvim", as = "catppuccin" }
 
   -- rust
-  use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rs", "toml" } } -- Rust
+  use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rust", "toml" } } -- Rust
   use {
 	'saecki/crates.nvim',
 	event = { "BufRead Cargo.toml" },
@@ -62,6 +67,8 @@ return packer.startup(function(use)
 	  require('crates').setup()
 	end
   }
+
+  -- telescope
   use {
 	'nvim-telescope/telescope.nvim',
 	requires = { {'nvim-lua/plenary.nvim'} }
