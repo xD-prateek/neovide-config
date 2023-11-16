@@ -74,6 +74,11 @@ return packer.startup(function(use)
 	requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- nvim-tree
+
+use { "nvim-tree/nvim-tree.lua", "nvim-tree/nvim-web-devicons" }
+
+
   if PACKER_BOOTSTRAP then
 	require("packer").sync()
   end

@@ -32,3 +32,6 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Fixing the problem of yanking when pasting
 keymap("v", "p", '"_dP', opts)
+
+-- NvimTreeToggle
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
