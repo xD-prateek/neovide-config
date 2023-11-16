@@ -71,7 +71,7 @@ return packer.startup(function(use)
   -- telescope
   use {
 	'nvim-telescope/telescope.nvim',
-	requires = { {'nvim-lua/plenary.nvim'} }
+	requires = { {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim"} }
   }
 
   -- nvim-tree
