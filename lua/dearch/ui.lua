@@ -1,4 +1,10 @@
-vim.cmd "colorscheme peachpuff"
+local status_ok, _ = pcall(require, "catppuccin")
+
+if status_ok then
+  vim.cmd "colorscheme catppuccin-mocha"
+else
+  vim.cmd "colorscheme peachpuff"
+end
 
 if vim.g.neovide then
   vim.o.guifont = "Fira Code:h11:#h-none"

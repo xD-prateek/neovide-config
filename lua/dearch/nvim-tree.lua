@@ -22,6 +22,7 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   -- vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', 'e', "<Nop>", opts('None'))
   -- vim.keymap.set('n', '<Tab>', api.node.open.preview(), opts('Open Preview'))
   -- vim.keymap.set('n', '<C-t>', api.node.open.tab(), opts('New Tab'))
   -- vim.keymap.set('n', '<C-h>', api.node.open.horizontal(), opts('Open: Horizontal Split'))

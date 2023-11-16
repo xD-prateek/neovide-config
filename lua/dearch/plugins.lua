@@ -41,13 +41,13 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
   -- completion source:
-  use "hrsh7th/cmp-path"                              
-  use "hrsh7th/cmp-buffer"                              
-  use "hrsh7th/cmp-nvim-lua"                              
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
   
   -- snippet 
-  use 'hrsh7th/nvim-cmp' 
+  use "hrsh7th/nvim-cmp" 
   use "L3MON4D3/LuaSnip"
 
   -- LSP completion
@@ -60,24 +60,37 @@ return packer.startup(function(use)
   -- rust
   use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rust", "toml" } } -- Rust
   use {
-	'saecki/crates.nvim',
+	"saecki/crates.nvim",
 	event = { "BufRead Cargo.toml" },
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
-	  require('crates').setup()
+	  require("crates").setup()
 	end
   }
 
   -- telescope
   use {
-	'nvim-telescope/telescope.nvim',
+	"nvim-telescope/telescope.nvim",
 	requires = { {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim"} }
   }
 
   -- nvim-tree
+  use { "nvim-tree/nvim-tree.lua", "nvim-tree/nvim-web-devicons" }
 
-use { "nvim-tree/nvim-tree.lua", "nvim-tree/nvim-web-devicons" }
+  -- tree-sitter
+  use { 
+	"nvim-treesitter/nvim-treesitter",
+	run = ":TSUpdate",
+  }
 
+  -- autopairs
+  use "windwp/nvim-autopairs"
+
+  -- commantry
+  use {
+	"numToStr/Comment.nvim",
+	requires = { {"JoosepAlviste/nvim-ts-context-commentstring"} },
+  }
 
   if PACKER_BOOTSTRAP then
 	require("packer").sync()
