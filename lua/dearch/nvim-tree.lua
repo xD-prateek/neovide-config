@@ -84,6 +84,6 @@ nvim_tree.setup {
 	side = "left",
   },
   filters = {
-	dotfiles = true,
+	dotfiles = false,
   },
 }

@@ -45,20 +45,22 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
-  
+
   -- snippet 
-  use "hrsh7th/nvim-cmp" 
+  use "hrsh7th/nvim-cmp"
   use "L3MON4D3/LuaSnip"
 
   -- LSP completion
-  use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
-  use "neovim/nvim-lspconfig"
+  use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"}
+
+  -- highlight similar words
+  use "RRethy/vim-illuminate"
 
   -- themes
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use { "embark-theme/vim", as = "embark" }
 
   -- rust
-  use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rust", "toml" } } -- Rust
+  -- use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rust", "toml" } } -- Rust
   use {
 	"saecki/crates.nvim",
 	event = { "BufRead Cargo.toml" },
@@ -71,14 +73,16 @@ return packer.startup(function(use)
   -- telescope
   use {
 	"nvim-telescope/telescope.nvim",
-	requires = { {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim"} }
+	requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim"}
   }
 
   -- nvim-tree
-  use { "nvim-tree/nvim-tree.lua", "nvim-tree/nvim-web-devicons" }
+  use { "nvim-tree/nvim-tree.lua",
+	requires = {"nvim-tree/nvim-web-devicons"}
+  }
 
   -- tree-sitter
-  use { 
+  use {
 	"nvim-treesitter/nvim-treesitter",
 	run = ":TSUpdate",
   }
@@ -89,8 +93,17 @@ return packer.startup(function(use)
   -- commantry
   use {
 	"numToStr/Comment.nvim",
-	requires = { {"JoosepAlviste/nvim-ts-context-commentstring"} },
+	requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
   }
+
+  -- bufferline
+  use {
+	"akinsho/bufferline.nvim",
+	requires = { "nvim-tree/nvim-web-devicons" }
+  }
+
+  -- null-ls (formatting)
+  use "jose-elias-alvarez/null-ls.nvim"
 
   if PACKER_BOOTSTRAP then
 	require("packer").sync()

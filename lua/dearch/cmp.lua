@@ -39,9 +39,9 @@ local kind_icons = {
 
 cmp.setup {
   snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
-    end,
+	expand = function(args)
+	  luasnip.lsp_expand(args.body) -- For `luasnip` users.
+	end,
   },
   mapping = {
 	["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -55,14 +55,14 @@ cmp.setup {
 	["<Tab>"] = cmp.mapping(function(fallback)
 	  if cmp.visible() then
 		cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+	  elseif luasnip.expandable() then
+		luasnip.expand()
+	  elseif luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
 	  else
 		fallback()
 	  end
-	end, {"i", "s",}),
+	  end, {"i", "s",}),
 	["<S-Tab>"] = cmp.mapping(function(fallback)
 	  if cmp.visible() then
 		cmp.select_prev_item()
@@ -71,13 +71,13 @@ cmp.setup {
 	  else
 		fallback()
 	  end
-	end, {"i", "s",}),
+	  end, {"i", "s",}),
 	-- ["<Esc>"] = cmp.mapping(function(fallback)
-	  -- if cmp.visible() then
-		-- cmp.close()
-	  -- else
-		-- fallback()
-	  -- end
+	-- if cmp.visible() then
+	-- cmp.close()
+	-- else
+	-- fallback()
+	-- end
 	-- end, {"i", "s"}),
   },
   formatting = {
@@ -98,17 +98,19 @@ cmp.setup {
 	end,
   },
   sources = {
+	{ name = "path" },
 	{ name = "nvim_lsp" },
 	{ name = "nvim_lua" },
 	{ name = "luasnip" },
 	{ name = "buffer" },
 	{ name = "crates" },
-	{ name = "path" },
   },
   window = {
-	documentation = {
-	  border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	},
+	documentation = cmp.config.window.bordered(),
+	completion = cmp.config.window.bordered(),
+	-- documentation = {
+	--   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+	-- },
   },
   experimental = {
 	ghost_text = true,

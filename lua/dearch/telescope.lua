@@ -11,16 +11,10 @@ telescope.setup ({
   defaults = {
 	layout_strategy = "flex",
 	layout_config = {
-	  horizontal = {
-		size = {
-		  width = "90%",
-		  height = "60%",
-		},
-	  },
 	  vertical = {
 		size = {
-		  width = "90%",
-		  height = "90%",
+		  width = 0.9,
+		  height = 0.9,
 		},
 	  },
 	},

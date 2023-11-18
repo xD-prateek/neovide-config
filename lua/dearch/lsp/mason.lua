@@ -1,10 +1,12 @@
 local mason_status_ok, mason = pcall(require, "mason")
 if not mason_status_ok then
+  print("Mason not found,")
   return
 end
 
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_ok then
+  print("mason-config not found.")
   return
 end
 
@@ -48,8 +50,6 @@ for _, server in pairs(servers) do
 		on_attach = require("dearch.lsp.handlers").on_attach,
 		capabilities = require("dearch.lsp.handlers").capabilities,
 	}
-
-	server = vim.split(server, "@")[1]
 
 	local require_ok, conf_opts = pcall(require, "dearch.lsp.settings." .. server)
 	if require_ok then
