@@ -117,11 +117,6 @@ _G.packer_plugins = {
     path = "/home/pn00/.local/share/nvim/site/pack/packer/opt/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
-  embark = {
-    loaded = true,
-    path = "/home/pn00/.local/share/nvim/site/pack/packer/start/embark",
-    url = "https://github.com/embark-theme/vim"
-  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/pn00/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -136,6 +131,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pn00/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "/home/pn00/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
