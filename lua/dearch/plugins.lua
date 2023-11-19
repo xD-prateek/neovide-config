@@ -62,6 +62,9 @@ return packer.startup(function(use)
 	use "catppuccin/nvim"
 	-- use { "embark-theme/vim", as = "embark" }
 
+	-- lualine
+	use "nvim-lualine/lualine.nvim"
+
 	-- rust
 	-- use { "rust-lang/rust.vim", "simrat39/rust-tools.nvim", ft = { "rust", "toml" } } -- Rust
 	use {

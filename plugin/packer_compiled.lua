@@ -117,6 +117,11 @@ _G.packer_plugins = {
     path = "/home/pn00/.local/share/nvim/site/pack/packer/opt/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/pn00/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/pn00/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
