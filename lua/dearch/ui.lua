@@ -56,7 +56,7 @@ if lualine_status_ok then
 
 	local function modified()
 		if vim.bo.modified then
-			return '+'
+			return '●'
 		elseif vim.bo.modifiable == false or vim.bo.readonly == true then
 			return '-'
 		end
@@ -121,7 +121,7 @@ if lualine_status_ok then
 end
 
 if vim.g.neovide then
-	vim.o.guifont = "Fira Code:h11:#h-none"
+	vim.o.guifont = "Fira Code:h10:#h-none"
 	vim.opt.linespace = 2
 
 	vim.g.neovide_cursor_animation_length = 0.06
