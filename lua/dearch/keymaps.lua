@@ -35,6 +35,7 @@ keymap("n", "<C-Right>", ":resize +2<CR>", opts)
 -- Navigate Buffers
 keymap("n", "S-l", ":bnext<CR>", opts)
 keymap("n", "S-h", ":bprevious<CR>", opts)
+keymap("n", "<leader>bd", ":bdelete|NvimTreeClose<CR>", opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
