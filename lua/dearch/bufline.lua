@@ -33,6 +33,7 @@ bufferline.setup {
 	},
 	enforce_regular_tabs = true,
 	always_show_bufferline = false,
+	diagnostics = "nvim_lsp",
   },
   highlights = {
 	close_button = {
