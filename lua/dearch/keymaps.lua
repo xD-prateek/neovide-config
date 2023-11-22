@@ -1,4 +1,3 @@
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -9,6 +8,8 @@
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+
+local term_opts = { silent = true }
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -52,3 +53,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Terminal --
+-- Better terminal navigation
+keymap("n", "<C-x>", ":terminal<CR>", term_opts)
+keymap("t", "<C-x>", "<C-\\><C-n>", term_opts)
