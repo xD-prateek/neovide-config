@@ -1,5 +1,4 @@
--- Modes
---   normal_mode = "n",
+-- Modes normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
@@ -22,10 +21,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -36,6 +31,9 @@ keymap("n", "<C-Right>", ":resize +2<CR>", opts)
 keymap("n", "S-l", ":bnext<CR>", opts)
 keymap("n", "S-h", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bdelete|NvimTreeClose<CR>", opts)
+-- vim.cmd[[
+--   autocmd BufReadPattern,bash nmap <leader>bd :bdelete!|NvimTreeClose<CR>
+-- ]]
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
