@@ -57,3 +57,23 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- Better terminal navigation
 keymap("n", "<C-x>", ":terminal<CR>", term_opts)
 keymap("t", "<C-x>", "<C-\\><C-n>", term_opts)
+
+-- Wrapping visual block
+
+local blockChars = {
+  { opener = "(", closer = ")" },
+  { opener = "{", closer = "}" },
+  { opener = "[", closer = "]" }
+}
+
+for _, block in ipairs(blockChars) do
+  local opener = block.opener
+  local closer = block.closer
+  keymap("x", "<leader>" .. opener, "<Esc>`>a" .. closer .. "<Esc>`<i" .. opener .. "<Esc>", opts)
+  keymap("x", "<leader>" .. closer, "<Esc>`<i" .. opener .. "<Esc>`>la" .. closer .. "<Esc>", opts)
+end
+
+local chars = { "\"", "'" }
+for _, char in ipairs(chars) do
+	keymap("x", "<leader>" .. char, "<Esc>`<i" .. char .. "<Esc>`>la" .. char .. "<Esc>", opts)
+end
