@@ -111,6 +111,9 @@ return packer.startup(function(use)
 	-- null-ls (formatting)
 	use "jose-elias-alvarez/null-ls.nvim"
 
+	-- use gitsigns
+	use "lewis6991/gitsigns.nvim"
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
