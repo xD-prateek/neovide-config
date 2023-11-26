@@ -46,12 +46,14 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-nvim-lua"
 	use "hrsh7th/cmp-nvim-lsp"
 
+	use "neovim/nvim-lspconfig"
+
 	-- snippet
 	use "hrsh7th/nvim-cmp"
 	use "L3MON4D3/LuaSnip"
 
 	-- LSP completion
-	use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig",
+	use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim",
 		run = ":MasonUpdate",
 	}
 

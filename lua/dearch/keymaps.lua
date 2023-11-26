@@ -28,8 +28,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":resize +2<CR>", opts)
 
 -- Navigate Buffers
-keymap("n", "S-l", ":bnext<CR>", opts)
-keymap("n", "S-h", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bdelete|NvimTreeClose<CR>", opts)
 -- vim.cmd[[
 --   autocmd BufReadPattern,bash nmap <leader>bd :bdelete!|NvimTreeClose<CR>
@@ -59,7 +59,6 @@ keymap("n", "<C-x>", ":terminal<CR>", term_opts)
 keymap("t", "<C-x>", "<C-\\><C-n>", term_opts)
 
 -- Wrapping visual block
-
 local blockChars = {
   { opener = "(", closer = ")" },
   { opener = "{", closer = "}" },
