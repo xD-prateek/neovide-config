@@ -57,6 +57,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
 
+  -- snippet
+  use "L3MON4D3/LuaSnip"
+
   -- highlight similar words
   use "RRethy/vim-illuminate"
 

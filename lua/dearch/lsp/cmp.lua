@@ -33,6 +33,14 @@ local kind_icons = {
 }
 
 cmp.setup {
+  snippet = {
+	expand = function(args)
+	  local snip_ok, luasnip = pcall(require, "luasnip")
+	  if snip_ok then
+		luasnip.lsp_expand(args.body)
+	  end
+	end
+  },
   mapping = {
 	["<C-k>"] = cmp.mapping.select_prev_item(),
 	["<C-j>"] = cmp.mapping.select_next_item(),
@@ -41,7 +49,10 @@ cmp.setup {
 	  i = cmp.mapping.abort(),
 	  c = cmp.mapping.close(),
 	},
-	["<CR>"] = cmp.mapping.confirm { select = true },
+	["<CR>"] = cmp.mapping.confirm { 
+	  behavior = cmp.ConfirmBehavior.Insert,
+	  select = true 
+	},
 	["<Tab>"] = cmp.mapping(function(fallback)
 	  if cmp.visible() then
 		cmp.select_next_item()
@@ -81,9 +92,9 @@ cmp.setup {
 	end,
   },
   sources = {
-	{ name = "path" },
 	{ name = "nvim_lsp" },
 	{ name = "nvim_lua" },
+	{ name = "path" },
 	{ name = "buffer" },
 	{ name = "crates" },
   },
@@ -98,4 +109,7 @@ cmp.setup {
 	ghost_text = true,
 	native_menu = false,
   },
+  completion = {
+	completeopt = "menu,menuone,noinsert"
+  }
 }
