@@ -21,6 +21,16 @@ telescope.setup ({
 	  },
 	},
   },
+  pickers = {
+	buffers = {
+	  sort_lastused = true,
+	  mappings = {
+		n = {
+		  ["dd"] = actions.delete_buffer + actions.move_to_top,
+		}
+	  }
+	}
+  },
   extensions = {
 	media_files = {
 	  filetypes = {"png", "webp", "jpg", "jpeg"},

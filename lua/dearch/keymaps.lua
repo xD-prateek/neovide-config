@@ -21,14 +21,28 @@ local blockChars = {
   { opener = "[", closer = "]" }
 }
 
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
 -- Telescope
--- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
--- keymap("n", "<leader>ff", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>", opts)
-keymap("n", "<leader>ff", "<cmd>Telescope file_browser<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", opts)
 keymap("n", "<leader>fa", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("v", "<leader>fg", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>fb", "<cmd> Telescope buffers<cr>", opts)
+keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", opts)
+-- git
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts)
+keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
+
+-- autocommand for removing auto comment insertion on new line trigger
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
 
 for _, block in ipairs(blockChars) do
   local opener = block.opener
